@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Guia Web — HTML, CSS e JavaScript (Sem frameworks)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir para o conteúdo principal</a>
+
+  <header class="site-header">
+    <h1>Guia Web: HTML, CSS e JavaScript</h1>
+    <p class="tagline">Conceitos, boas práticas, panorama de tecnologias e fluxo de projeto — só HTML5, CSS3 e JS</p>
+  </header>
+
+  <nav class="site-nav" aria-label="Navegação do site">
+    <ul>
+      <li><a href="#o-que-sao">O que são</a></li>
+      <li><a href="#boas-praticas">Boas práticas</a></li>
+      <li><a href="#panorama">Panorama</a></li>
+      <li><a href="#fluxograma">Fluxograma</a></li>
+      <li><a href="#quiz">Quiz & Progresso</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="site-main">
+
+    <article id="o-que-sao" class="card">
+      <h2>1. O que são HTML, CSS e JavaScript?</h2>
+      <section>
+        <h3>HTML — Estrutura</h3>
+        <p>HTML (HyperText Markup Language) é a linguagem de marcação que define a estrutura do conteúdo na web: títulos, parágrafos, listas, links, formulários e mais. Elementos semânticos ajudam navegadores e tecnologias assistivas a entender o conteúdo.</p>
+      </section>
+      <section>
+        <h3>CSS — Apresentação</h3>
+        <p>CSS (Cascading Style Sheets) controla a aparência: cores, tipografia, layout e responsividade. Separar estilo da estrutura permite manutenção e temas.</p>
+      </section>
+      <section>
+        <h3>JavaScript — Comportamento</h3>
+        <p>JavaScript adiciona interatividade e dinâmica: manipula o DOM, trata eventos, valida formulários, faz requisições HTTP (fetch) e interage com APIs do browser (localStorage, Geolocation, Service Workers, etc.).</p>
+      </section>
+    </article>
+
+    <article id="boas-praticas" class="card">
+      <h2>2. Boas práticas profissionais</h2>
+      <section>
+        <h3>Acessibilidade (a11y)</h3>
+        <ul>
+          <li>Use marcação semântica (<code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, etc.).</li>
+          <li>Forneça textos alternativos (alt) e rótulos (labels) claros.</li>
+          <li>Controle o foco, use contrastes adequados e teste com teclado e leitores de tela.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Semântica</h3>
+        <p>Marcação semântica melhora SEO e manutenção. Escolha a tag correta (por exemplo, <code>&lt;button&gt;</code> em vez de <code>&lt;div&gt;</code> para ações).</p>
+      </section>
+      <section>
+        <h3>Responsividade</h3>
+        <p>Adote design fluido, media queries e unidades relativas (<code>rem</code>, <code>em</code>, <code>%</code>, <code>vw/vh</code>) para suportar diversos tamanhos de tela.</p>
+      </section>
+      <section>
+        <h3>Organização</h3>
+        <ul>
+          <li>Mantenha arquivos pequenos e modulares (CSS e JS separados).</li>
+          <li>Comente e documente decisões importantes.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Versionamento</h3>
+        <p>Use Git: commits pequenos, mensagens descritivas, branches para features e tags para releases.</p>
+      </section>
+    </article>
+
+    <article id="panorama" class="card">
+      <h2>3. Panorama de tecnologias web</h2>
+      <section>
+        <h3>Front-end</h3>
+        <p>HTML/CSS/JS no browser. Ferramentas comuns: bundlers, preprocessadores, transpiladores (nem sempre necessários quando se usa apenas ES6+).</p>
+      </section>
+      <section>
+        <h3>Back-end (visão geral)</h3>
+        <p>Servidores que processam lógica, autenticação e armazenam dados. Linguagens comuns: Node.js, Python, Ruby, Java, PHP. Neste projeto não usamos back-end.</p>
+      </section>
+      <section>
+        <h3>Bancos de dados</h3>
+        <p>Relacionais (Postgres, MySQL) ou NoSQL (MongoDB). No browser, para persistência simples, use <code>localStorage</code>, <code>IndexedDB</code> ou APIs remotas.</p>
+      </section>
+      <section>
+        <h3>DevOps</h3>
+        <p>Build, CI/CD, containers, e serviços de hosting (Netlify, GitHub Pages, Vercel). Automatize testes e deploys para consistência.</p>
+      </section>
+      <section>
+        <h3>Testes</h3>
+        <p>Testes unitários, de integração e end-to-end. Para sites estáticos, inclua testes de acessibilidade e regressão visual quando possível.</p>
+      </section>
+      <section>
+        <h3>Como escolher?</h3>
+        <ol>
+          <li>Defina requisitos (escala, tempo, orçamento).</li>
+          <li>Escolha ferramentas que o time domina.</li>
+          <li>Prefira soluções simples para MVP; otimize depois.</li>
+        </ol>
+      </section>
+    </article>
+
+    <article id="fluxograma" class="card">
+      <h2>4. Fluxograma de um projeto web (da ideia ao deploy)</h2>
+      <div class="flowchart" aria-hidden="false">
+        <!-- Simple SVG flowchart -->
+        <svg viewBox="0 0 900 420" role="img" aria-label="Fluxograma do projeto web" preserveAspectRatio="xMidYMid meet">
+          <style>
+            .box{fill:#fff;stroke:#0a66c2;stroke-width:2;}
+            .text{font:14px/1.2 system-ui,Segoe UI,Arial;fill:#0a66c2}
+          </style>
+          <rect x="20" y="20" width="200" height="60" rx="8" class="box"/>
+          <text x="120" y="50" text-anchor="middle" class="text">Ideia & Requisitos</text>
+
+          <rect x="260" y="20" width="200" height="60" rx="8" class="box"/>
+          <text x="360" y="50" text-anchor="middle" class="text">Design & Prototipo</text>
+
+          <rect x="500" y="20" width="200" height="60" rx="8" class="box"/>
+          <text x="600" y="50" text-anchor="middle" class="text">Implementação</text>
+
+          <rect x="260" y="120" width="200" height="60" rx="8" class="box"/>
+          <text x="360" y="150" text-anchor="middle" class="text">Testes</text>
+
+          <rect x="500" y="120" width="200" height="60" rx="8" class="box"/>
+          <text x="600" y="150" text-anchor="middle" class="text">Ajustes & QA</text>
+
+          <rect x="360" y="220" width="200" height="60" rx="8" class="box"/>
+          <text x="460" y="250" text-anchor="middle" class="text">Deploy & Monitoramento</text>
+
+          <!-- Arrows -->
+          <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto">
+              <path d="M0 0 L10 5 L0 10 z" fill="#0a66c2" />
+            </marker>
+          </defs>
+          <line x1="220" y1="50" x2="260" y2="50" stroke="#0a66c2" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="460" y1="50" x2="500" y2="50" stroke="#0a66c2" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="600" y1="80" x2="600" y2="120" stroke="#0a66c2" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="360" y1="180" x2="360" y2="220" stroke="#0a66c2" stroke-width="2" marker-end="url(#arrow)"/>
+          <line x1="700" y1="150" x2="560" y2="150" stroke="#0a66c2" stroke-width="2" marker-end="url(#arrow)"/>
+        </svg>
+      </div>
+      <p class="caption">Observação: iterações entre design, implementação e testes são normais — o fluxo não é estritamente linear.</p>
+    </article>
+
+    <article id="quiz" class="card">
+      <h2>Quiz rápido & Progresso</h2>
+      <p>Responda e salve seu progresso localmente. Os dados ficam apenas no seu navegador (localStorage).</p>
+      <form id="quizForm" aria-label="Quiz sobre conteúdo">
+        <fieldset>
+          <legend>Perguntas</legend>
+          <div class="question">
+            <label>1) Qual tecnologia define a estrutura do documento?</label>
+            <select name="q1" required>
+              <option value="">— escolha —</option>
+              <option value="html">HTML</option>
+              <option value="css">CSS</option>
+              <option value="js">JavaScript</option>
+            </select>
+          </div>
+          <div class="question">
+            <label>2) O que melhora quando se usa marcação semântica?</label>
+            <select name="q2" required>
+              <option value="">— escolha —</option>
+              <option value="acess">Acessibilidade e SEO</option>
+              <option value="estilo">Aparência apenas</option>
+              <option value="vel">Velocidade do servidor</option>
+            </select>
+          </div>
+          <div class="question">
+            <label>3) Qual API do browser permite persistir dados simples no cliente?</label>
+            <select name="q3" required>
+              <option value="">— escolha —</option>
+              <option value="localStorage">localStorage</option>
+              <option value="mysql">MySQL</option>
+              <option value="ftp">FTP</option>
+            </select>
+          </div>
+        </fieldset>
+        <div class="form-actions">
+          <button type="submit">Salvar respostas</button>
+          <button type="button" id="clearProgress">Limpar progresso</button>
+        </div>
+      </form>
+
+      <div id="progress" aria-live="polite" class="progress">Progresso: nenhum</div>
+    </article>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Projeto educativo — sem back-end. Dados locais apenas com <code>localStorage</code>.</p>
+    <p>Abra este arquivo localmente: <strong>index.html</strong></p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
