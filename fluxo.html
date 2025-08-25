@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fluxo — Guia Profissional de Desenvolvimento Web</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir para o conteúdo</a>
+  <header class="site-header">
+    <div class="header-inner container">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="Logo Guia Web" class="logo">
+        <div class="site-title">Guia Profissional de Desenvolvimento Web</div>
+      </div>
+      <nav>
+        <button id="navToggle" class="hamburger" aria-expanded="false" aria-controls="navList">☰</button>
+        <div id="navList" class="nav-list" role="navigation">
+          <a href="index.html">Home</a>
+          <a href="tecnologias.html">Tecnologias</a>
+          <a href="boas-praticas.html">Boas Práticas</a>
+          <a href="fluxo.html">Fluxo</a>
+          <a href="quiz.html">Quiz</a>
+          <button id="themeToggle" aria-pressed="false">Tema</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container" style="margin-top:80px">
+    <h1>Fluxograma do projeto web</h1>
+    <p>Clique em uma etapa para ver entregáveis e riscos.</p>
+
+    <div class="flowchart" style="margin:1rem 0">
+      <svg width="100%" height="220" viewBox="0 0 1000 220" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <marker id="a" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#2563EB"/></marker>
+        </defs>
+        <g>
+          <rect x="20" y="20" width="140" height="60" rx="8" fill="#fff" stroke="#2563EB" data-title="Descoberta"/>
+          <text x="90" y="55" font-family="Inter" font-size="12" text-anchor="middle">Descoberta</text>
+
+          <rect x="200" y="20" width="140" height="60" rx="8" fill="#fff" stroke="#2563EB" data-title="Requisitos"/>
+          <text x="270" y="55" font-family="Inter" font-size="12" text-anchor="middle">Requisitos</text>
+
+          <rect x="380" y="20" width="140" height="60" rx="8" fill="#fff" stroke="#2563EB" data-title="Protótipo"/>
+          <text x="450" y="55" font-family="Inter" font-size="12" text-anchor="middle">Protótipo</text>
+
+          <rect x="560" y="20" width="140" height="60" rx="8" fill="#fff" stroke="#2563EB" data-title="Design"/>
+          <text x="630" y="55" font-family="Inter" font-size="12" text-anchor="middle">Design</text>
+
+          <rect x="740" y="20" width="140" height="60" rx="8" fill="#fff" stroke="#2563EB" data-title="Implementação"/>
+          <text x="810" y="55" font-family="Inter" font-size="12" text-anchor="middle">Implementação</text>
+
+        </g>
+      </svg>
+    </div>
+
+    <div class="timeline" aria-hidden="false">
+      <div class="step flow-step" data-title="Descoberta" data-deliverables="Mapas, entrevistas" data-risks="Escopo mal definido">Descoberta</div>
+      <div class="step flow-step" data-title="Requisitos" data-deliverables="Histórias, critérios" data-risks="Requisitos incompletos">Requisitos</div>
+      <div class="step flow-step" data-title="Protótipo" data-deliverables="Wireframes" data-risks="Falta de validação de UX">Protótipo</div>
+      <div class="step flow-step" data-title="Design" data-deliverables="Design tokens, mockups" data-risks="Inconsistências visuais">Design</div>
+      <div class="step flow-step" data-title="Implementação" data-deliverables="Código, testes" data-risks="Dívida técnica">Implementação</div>
+      <div class="step flow-step" data-title="Testes" data-deliverables="Relatórios" data-risks="Cobertura insuficiente">Testes</div>
+      <div class="step flow-step" data-title="Deploy" data-deliverables="Artefatos, scripts" data-risks="Rollback" style="min-width:240px">Preparação / Publicação</div>
+    </div>
+
+    <div id="flowTooltip" class="card" style="display:none;position:relative;margin-top:1rem;padding:1rem" aria-hidden="true"></div>
+  </main>
+
+  <footer class="site-footer container">
+    <p>© <span id="year"></span> Guia Profissional de Desenvolvimento Web — Créditos: conteúdo educativo.</p>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+  <script>document.getElementById('year').textContent=(new Date()).getFullYear()</script>
+</body>
+</html>

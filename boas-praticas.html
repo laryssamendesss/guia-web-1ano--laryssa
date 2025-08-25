@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Boas Práticas — Guia Profissional de Desenvolvimento Web</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir para o conteúdo</a>
+  <header class="site-header">
+    <div class="header-inner container">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="Logo Guia Web" class="logo">
+        <div class="site-title">Guia Profissional de Desenvolvimento Web</div>
+      </div>
+      <nav>
+        <button id="navToggle" class="hamburger" aria-expanded="false" aria-controls="navList">☰</button>
+        <div id="navList" class="nav-list" role="navigation">
+          <a href="index.html">Home</a>
+          <a href="tecnologias.html">Tecnologias</a>
+          <a href="boas-praticas.html">Boas Práticas</a>
+          <a href="fluxo.html">Fluxo</a>
+          <a href="quiz.html">Quiz</a>
+          <button id="themeToggle" aria-pressed="false">Tema</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container" style="margin-top:80px">
+    <h1>Boas Práticas</h1>
+
+    <section class="card">
+      <h2>Semântica & Acessibilidade</h2>
+      <div class="accordion-item">
+        <button class="accordion-header" aria-expanded="false">Princípios</button>
+        <div class="accordion-panel">
+          <ul>
+            <li>Use tags semânticas (landmarks) para estruturar conteúdo.</li>
+            <li>Adicione <code>alt</code> descritivo em imagens.</li>
+            <li>Conecte <label for> com inputs.</li>
+          </ul>
+          <pre><code>&lt;label for="email"&gt;Email&lt;/label&gt;
+&lt;input id="email" type="email" /&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Responsividade</h2>
+      <div class="accordion-item">
+        <button class="accordion-header" aria-expanded="false">Técnicas</button>
+        <div class="accordion-panel">
+          <ul>
+            <li>Adote mobile-first e media queries.</li>
+            <li>Use Flexbox e Grid para layouts.</li>
+            <li>Use unidades relativas (<code>rem</code>, <code>%</code>).</li>
+          </ul>
+          <pre><code>.container{display:grid;grid-template-columns:1fr}
+@media(min-width:700px){.container{grid-template-columns:1fr 2fr}}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Organização de CSS</h2>
+      <div class="accordion-item">
+        <button class="accordion-header" aria-expanded="false">Estratégia</button>
+        <div class="accordion-panel">
+          <ul>
+            <li>Use convenções (BEM) e variáveis CSS.</li>
+            <li>Separe componentes e utilitários.</li>
+            <li>Comente decisões importantes.</li>
+          </ul>
+          <pre><code>/* Ex.: bloco BEM */
+.header__title{font-size:1.2rem}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Performance & Versionamento</h2>
+      <div class="accordion-item">
+        <button class="accordion-header" aria-expanded="false">Práticas</button>
+        <div class="accordion-panel">
+          <ul>
+            <li>Otimize imagens e use lazy loading.</li>
+            <li>Evite JS desnecessário e carregue scripts deferidos.</li>
+            <li>Commits claros e branches para features.</li>
+          </ul>
+          <pre><code>&lt;img src="foto.jpg" loading="lazy" alt="Descrição" /&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <div class="card">
+      <h3>Checklist pessoal</h3>
+      <p id="bpProgress">Progresso: 0%</p>
+      <ul>
+        <li><label><input type="checkbox" class="bp-check" id="chk_semantica"> Semântica aplicada</label></li>
+        <li><label><input type="checkbox" class="bp-check" id="chk_responsividade"> Responsivo</label></li>
+        <li><label><input type="checkbox" class="bp-check" id="chk_performance"> Performance</label></li>
+        <li><label><input type="checkbox" class="bp-check" id="chk_versionamento"> Versionamento</label></li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer class="site-footer container">
+    <p>© <span id="year"></span> Guia Profissional de Desenvolvimento Web — Créditos: conteúdo educativo.</p>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+  <script>document.getElementById('year').textContent=(new Date()).getFullYear()</script>
+</body>
+</html>

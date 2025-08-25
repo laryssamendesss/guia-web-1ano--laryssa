@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tecnologias — Guia Profissional de Desenvolvimento Web</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir para o conteúdo</a>
+  <header class="site-header">
+    <div class="header-inner container">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="Logo Guia Web" class="logo">
+        <div>
+          <div class="site-title">Guia Profissional de Desenvolvimento Web</div>
+        </div>
+      </div>
+      <nav>
+        <button id="navToggle" class="hamburger" aria-expanded="false" aria-controls="navList">☰</button>
+        <div id="navList" class="nav-list" role="navigation">
+          <a href="index.html">Home</a>
+          <a href="tecnologias.html">Tecnologias</a>
+          <a href="boas-praticas.html">Boas Práticas</a>
+          <a href="fluxo.html">Fluxo</a>
+          <a href="quiz.html">Quiz</a>
+          <button id="themeToggle" aria-pressed="false">Tema</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container" style="margin-top:80px">
+    <h1>Tecnologias — Panorama</h1>
+    <p>Use os filtros e a busca para explorar tecnologias. Acessível e sem recarregar a página.</p>
+
+    <div style="display:flex;gap:.5rem;align-items:center;margin:1rem 0">
+      <input id="searchTech" placeholder="Buscar tecnologias (tecla /)" aria-label="Buscar tecnologias" style="flex:1;padding:.5rem;border:1px solid var(--neutral-200);border-radius:8px">
+      <button id="exportCSV" class="btn" style="margin-left:.5rem">Exportar CSV</button>
+    </div>
+
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem">
+      <button data-filter data-filter-value="all" aria-expanded="false">Todos</button>
+      <button data-filter data-filter-value="frontend" aria-expanded="false">Front-end</button>
+      <button data-filter data-filter-value="backend" aria-expanded="false">Back-end</button>
+      <button data-filter data-filter-value="db" aria-expanded="false">Bancos</button>
+      <button data-filter data-filter-value="devops" aria-expanded="false">DevOps</button>
+      <button data-filter data-filter-value="testes" aria-expanded="false">Testes</button>
+    </div>
+
+    <section id="techsContainer" class="tech-grid">
+      <!-- At least 10 cards -->
+      <article class="tech-card" data-name="React" data-category="frontend" data-pros="Componentização|Grande comunidade" data-cons="Curva de aprendizado|Tamanho" data-when="Útil para apps interativos e SPAs">
+        <h4>React <span class="badge">Intermediário</span></h4>
+        <p>Para construir interfaces reativas com componentes.</p>
+        <p><a href="https://reactjs.org" target="_blank" rel="noopener">Site oficial</a></p>
+      </article>
+
+      <article class="tech-card" data-name="Vue" data-category="frontend" data-pros="Leve|Curva acessível" data-cons="Menor mercado|Fragmentação" data-when="Projetos com equipe pequena e rapidez">
+        <h4>Vue <span class="badge">Intermediário</span></h4>
+        <p>Framework progressivo para UIs.</p>
+        <p><a href="https://vuejs.org" target="_blank" rel="noopener">Site oficial</a></p>
+      </article>
+
+      <article class="tech-card" data-name="Angular" data-category="frontend" data-pros="Completo|CLI poderoso" data-cons="Verboso|Curva de aprendizado" data-when="APIs e grandes sistemas corporativos">
+        <h4>Angular <span class="badge">Avançado</span></h4>
+        <p>Framework full-featured para aplicações grandes.</p>
+        <p><a href="https://angular.io" target="_blank" rel="noopener">Site oficial</a></p>
+      </article>
+
+      <article class="tech-card" data-name="Node.js" data-category="backend" data-pros="JS no servidor|Grande ecossistema" data-cons="Callback/async pitfalls|Single-thread" data-when="APIs em tempo real e microserviços">
+        <h4>Node.js <span class="badge">Intermediário</span></h4>
+        <p>Ambiente para executar JavaScript no servidor.</p>
+        <p><a href="https://nodejs.org" target="_blank" rel="noopener">Site oficial</a></p>
+      </article>
+
+      <article class="tech-card" data-name="Django" data-category="backend" data-pros="Baterias inclusas|Segurança" data-cons="Monolítico|Curva ORM" data-when="APIs e aplicações com admin integrado">
+        <h4>Django <span class="badge">Intermediário</span></h4>
+        <p>Framework Python para web robusta.</p>
+        <p><a href="https://www.djangoproject.com" target="_blank" rel="noopener">Site oficial</a></p>
+      </article>
+
+      <article class="tech-card" data-name="PostgreSQL" data-category="db" data-pros="ACID|Extensível" data-cons="Configuração|Recursos avançados" data-when="Sistemas que precisam de integridade de dados">
+        <h4>PostgreSQL <span class="badge">Avançado</span></h4>
+        <p>Banco relacional poderoso.</p>
+        <p><a href="https://www.postgresql.org" target="_blank" rel="noopener">Site oficial</a></p>
+      </article>
+
+      <article class="tech-card" data-name="MySQL" data-category="db" data-pros="Ampla adoção|Simplicidade" data-cons="Licença histórica|Menos features" data-when="Web apps tradicionais e hospedagem compartilhada">
+        <h4>MySQL <span class="badge">Básico</span></h4>
+        <p>Banco relacional popular.</p>
+        <p><a href="https://www.mysql.com" target="_blank" rel="noopener">Site oficial</a></p>
+      </article>
+
+      <article class="tech-card" data-name="MongoDB" data-category="db" data-pros="Flexível|Escalável" data-cons="Consistência eventual|Modelagem" data-when="Dados semi-estruturados e tempo de desenvolvimento rápido">
+        <h4>MongoDB <span class="badge">Intermediário</span></h4>
+        <p>Banco NoSQL orientado a documentos.</p>
+        <p><a href="https://www.mongodb.com" target="_blank" rel="noopener">Site oficial</a></p>
+      </article>
+
+      <article class="tech-card" data-name="Docker" data-category="devops" data-pros="Ambientes reproduzíveis|Isolamento" data-cons="Complexidade|Overhead" data-when="Entrega consistente e CI/CD">
+        <h4>Docker <span class="badge">Intermediário</span></h4>
+        <p>Conteinerização de aplicações.</p>
+        <p><a href="https://www.docker.com" target="_blank" rel="noopener">Site oficial</a></p>
+      </article>
+
+      <article class="tech-card" data-name="CI/CD (GitHub Actions)" data-category="devops" data-pros="Automação|Integração com repo" data-cons="Curva de configs|Debug" data-when="Automatizar builds e deploys">
+        <h4>GitHub Actions <span class="badge">Básico</span></h4>
+        <p>Plataforma de CI integrada ao GitHub.</p>
+        <p><a href="https://github.com/features/actions" target="_blank" rel="noopener">Site oficial</a></p>
+      </article>
+
+      <article class="tech-card" data-name="Jest" data-category="testes" data-pros="Ecosistema JS|Snapshots" data-cons="Configuração em projetos grandes|Falso positivo" data-when="Testes unitários de JS">
+        <h4>Jest <span class="badge">Intermediário</span></h4>
+        <p>Framework de testes para JavaScript.</p>
+        <p><a href="https://jestjs.io" target="_blank" rel="noopener">Site oficial</a></p>
+      </article>
+
+    </section>
+
+    <div id="techModal" class="modal-backdrop" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="techModalTitle">
+        <button id="techModalClose" aria-label="Fechar">Fechar</button>
+        <h3 id="techModalTitle">Título</h3>
+        <div id="techModalBody"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer container">
+    <p>© <span id="year"></span> Guia Profissional de Desenvolvimento Web — Créditos: conteúdo educativo.</p>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+  <script>document.getElementById('year').textContent=(new Date()).getFullYear()</script>
+</body>
+</html>
