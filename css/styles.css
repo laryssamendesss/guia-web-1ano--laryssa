@@ -90,6 +90,14 @@ html.dark .site-header{background:rgba(6,12,20,.85)}
 .modal-backdrop.open{display:flex}
 .modal{background:var(--neutral-100);padding:1rem;border-radius:10px;max-width:720px;width:90%;}
 
+/* Favorite toggle */
+.fav-toggle{background:transparent;border:0;font-size:1.1rem;cursor:pointer;color:var(--neutral-900)}
+.fav-toggle.is-fav{color:var(--color-secondary)}
+.fav-toggle:focus{outline:3px solid rgba(16,185,129,.18);border-radius:6px}
+
+/* Modal focus trap visual */
+.modal button:focus, .modal a:focus{outline:3px solid rgba(37,99,235,.18);outline-offset:2px}
+
 /* Grid for tech cards */
 .tech-grid{display:grid;grid-template-columns:repeat(1,1fr);gap:1rem}
 @media(min-width:700px){.tech-grid{grid-template-columns:repeat(2,1fr)}}

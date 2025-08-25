@@ -48,70 +48,103 @@
       <button data-filter data-filter-value="testes" aria-expanded="false">Testes</button>
     </div>
 
-    <section id="techsContainer" class="tech-grid">
+  <section id="techsContainer" class="tech-grid">
       <!-- At least 10 cards -->
-      <article class="tech-card" data-name="React" data-category="frontend" data-pros="Componentização|Grande comunidade" data-cons="Curva de aprendizado|Tamanho" data-when="Útil para apps interativos e SPAs">
-        <h4>React <span class="badge">Intermediário</span></h4>
+      <article class="tech-card" tabindex="0" data-name="React" data-category="frontend" data-pros="Componentização|Grande comunidade" data-cons="Curva de aprendizado|Tamanho" data-when="Útil para apps interativos e SPAs">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h4>React <span class="badge">Intermediário</span></h4>
+          <button class="fav-toggle" data-tech-name="React" aria-pressed="false" title="Favoritar React">★</button>
+        </div>
         <p>Para construir interfaces reativas com componentes.</p>
         <p><a href="https://reactjs.org" target="_blank" rel="noopener">Site oficial</a></p>
       </article>
 
-      <article class="tech-card" data-name="Vue" data-category="frontend" data-pros="Leve|Curva acessível" data-cons="Menor mercado|Fragmentação" data-when="Projetos com equipe pequena e rapidez">
-        <h4>Vue <span class="badge">Intermediário</span></h4>
+      <article class="tech-card" tabindex="0" data-name="Vue" data-category="frontend" data-pros="Leve|Curva acessível" data-cons="Menor mercado|Fragmentação" data-when="Projetos com equipe pequena e rapidez">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h4>Vue <span class="badge">Intermediário</span></h4>
+          <button class="fav-toggle" data-tech-name="Vue" aria-pressed="false" title="Favoritar Vue">★</button>
+        </div>
         <p>Framework progressivo para UIs.</p>
         <p><a href="https://vuejs.org" target="_blank" rel="noopener">Site oficial</a></p>
       </article>
 
-      <article class="tech-card" data-name="Angular" data-category="frontend" data-pros="Completo|CLI poderoso" data-cons="Verboso|Curva de aprendizado" data-when="APIs e grandes sistemas corporativos">
-        <h4>Angular <span class="badge">Avançado</span></h4>
+      <article class="tech-card" tabindex="0" data-name="Angular" data-category="frontend" data-pros="Completo|CLI poderoso" data-cons="Verboso|Curva de aprendizado" data-when="APIs e grandes sistemas corporativos">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h4>Angular <span class="badge">Avançado</span></h4>
+          <button class="fav-toggle" data-tech-name="Angular" aria-pressed="false" title="Favoritar Angular">★</button>
+        </div>
         <p>Framework full-featured para aplicações grandes.</p>
         <p><a href="https://angular.io" target="_blank" rel="noopener">Site oficial</a></p>
       </article>
 
-      <article class="tech-card" data-name="Node.js" data-category="backend" data-pros="JS no servidor|Grande ecossistema" data-cons="Callback/async pitfalls|Single-thread" data-when="APIs em tempo real e microserviços">
-        <h4>Node.js <span class="badge">Intermediário</span></h4>
+      <article class="tech-card" tabindex="0" data-name="Node.js" data-category="backend" data-pros="JS no servidor|Grande ecossistema" data-cons="Callback/async pitfalls|Single-thread" data-when="APIs em tempo real e microserviços">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h4>Node.js <span class="badge">Intermediário</span></h4>
+          <button class="fav-toggle" data-tech-name="Node.js" aria-pressed="false" title="Favoritar Node.js">★</button>
+        </div>
         <p>Ambiente para executar JavaScript no servidor.</p>
         <p><a href="https://nodejs.org" target="_blank" rel="noopener">Site oficial</a></p>
       </article>
 
-      <article class="tech-card" data-name="Django" data-category="backend" data-pros="Baterias inclusas|Segurança" data-cons="Monolítico|Curva ORM" data-when="APIs e aplicações com admin integrado">
-        <h4>Django <span class="badge">Intermediário</span></h4>
+      <article class="tech-card" tabindex="0" data-name="Django" data-category="backend" data-pros="Baterias inclusas|Segurança" data-cons="Monolítico|Curva ORM" data-when="APIs e aplicações com admin integrado">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h4>Django <span class="badge">Intermediário</span></h4>
+          <button class="fav-toggle" data-tech-name="Django" aria-pressed="false" title="Favoritar Django">★</button>
+        </div>
         <p>Framework Python para web robusta.</p>
         <p><a href="https://www.djangoproject.com" target="_blank" rel="noopener">Site oficial</a></p>
       </article>
 
-      <article class="tech-card" data-name="PostgreSQL" data-category="db" data-pros="ACID|Extensível" data-cons="Configuração|Recursos avançados" data-when="Sistemas que precisam de integridade de dados">
-        <h4>PostgreSQL <span class="badge">Avançado</span></h4>
+      <article class="tech-card" tabindex="0" data-name="PostgreSQL" data-category="db" data-pros="ACID|Extensível" data-cons="Configuração|Recursos avançados" data-when="Sistemas que precisam de integridade de dados">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h4>PostgreSQL <span class="badge">Avançado</span></h4>
+          <button class="fav-toggle" data-tech-name="PostgreSQL" aria-pressed="false" title="Favoritar PostgreSQL">★</button>
+        </div>
         <p>Banco relacional poderoso.</p>
         <p><a href="https://www.postgresql.org" target="_blank" rel="noopener">Site oficial</a></p>
       </article>
 
-      <article class="tech-card" data-name="MySQL" data-category="db" data-pros="Ampla adoção|Simplicidade" data-cons="Licença histórica|Menos features" data-when="Web apps tradicionais e hospedagem compartilhada">
-        <h4>MySQL <span class="badge">Básico</span></h4>
+      <article class="tech-card" tabindex="0" data-name="MySQL" data-category="db" data-pros="Ampla adoção|Simplicidade" data-cons="Licença histórica|Menos features" data-when="Web apps tradicionais e hospedagem compartilhada">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h4>MySQL <span class="badge">Básico</span></h4>
+          <button class="fav-toggle" data-tech-name="MySQL" aria-pressed="false" title="Favoritar MySQL">★</button>
+        </div>
         <p>Banco relacional popular.</p>
         <p><a href="https://www.mysql.com" target="_blank" rel="noopener">Site oficial</a></p>
       </article>
 
-      <article class="tech-card" data-name="MongoDB" data-category="db" data-pros="Flexível|Escalável" data-cons="Consistência eventual|Modelagem" data-when="Dados semi-estruturados e tempo de desenvolvimento rápido">
-        <h4>MongoDB <span class="badge">Intermediário</span></h4>
+      <article class="tech-card" tabindex="0" data-name="MongoDB" data-category="db" data-pros="Flexível|Escalável" data-cons="Consistência eventual|Modelagem" data-when="Dados semi-estruturados e tempo de desenvolvimento rápido">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h4>MongoDB <span class="badge">Intermediário</span></h4>
+          <button class="fav-toggle" data-tech-name="MongoDB" aria-pressed="false" title="Favoritar MongoDB">★</button>
+        </div>
         <p>Banco NoSQL orientado a documentos.</p>
         <p><a href="https://www.mongodb.com" target="_blank" rel="noopener">Site oficial</a></p>
       </article>
 
-      <article class="tech-card" data-name="Docker" data-category="devops" data-pros="Ambientes reproduzíveis|Isolamento" data-cons="Complexidade|Overhead" data-when="Entrega consistente e CI/CD">
-        <h4>Docker <span class="badge">Intermediário</span></h4>
+      <article class="tech-card" tabindex="0" data-name="Docker" data-category="devops" data-pros="Ambientes reproduzíveis|Isolamento" data-cons="Complexidade|Overhead" data-when="Entrega consistente e CI/CD">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h4>Docker <span class="badge">Intermediário</span></h4>
+          <button class="fav-toggle" data-tech-name="Docker" aria-pressed="false" title="Favoritar Docker">★</button>
+        </div>
         <p>Conteinerização de aplicações.</p>
         <p><a href="https://www.docker.com" target="_blank" rel="noopener">Site oficial</a></p>
       </article>
 
-      <article class="tech-card" data-name="CI/CD (GitHub Actions)" data-category="devops" data-pros="Automação|Integração com repo" data-cons="Curva de configs|Debug" data-when="Automatizar builds e deploys">
-        <h4>GitHub Actions <span class="badge">Básico</span></h4>
+      <article class="tech-card" tabindex="0" data-name="GitHub Actions" data-category="devops" data-pros="Automação|Integração com repo" data-cons="Curva de configs|Debug" data-when="Automatizar builds e deploys">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h4>GitHub Actions <span class="badge">Básico</span></h4>
+          <button class="fav-toggle" data-tech-name="GitHub Actions" aria-pressed="false" title="Favoritar GitHub Actions">★</button>
+        </div>
         <p>Plataforma de CI integrada ao GitHub.</p>
         <p><a href="https://github.com/features/actions" target="_blank" rel="noopener">Site oficial</a></p>
       </article>
 
-      <article class="tech-card" data-name="Jest" data-category="testes" data-pros="Ecosistema JS|Snapshots" data-cons="Configuração em projetos grandes|Falso positivo" data-when="Testes unitários de JS">
-        <h4>Jest <span class="badge">Intermediário</span></h4>
+      <article class="tech-card" tabindex="0" data-name="Jest" data-category="testes" data-pros="Ecosistema JS|Snapshots" data-cons="Configuração em projetos grandes|Falso positivo" data-when="Testes unitários de JS">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h4>Jest <span class="badge">Intermediário</span></h4>
+          <button class="fav-toggle" data-tech-name="Jest" aria-pressed="false" title="Favoritar Jest">★</button>
+        </div>
         <p>Framework de testes para JavaScript.</p>
         <p><a href="https://jestjs.io" target="_blank" rel="noopener">Site oficial</a></p>
       </article>

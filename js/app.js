@@ -86,35 +86,89 @@ const TechsModule = (function(){
     })
 
     // Modal
-    const modal = document.getElementById('techModal')
+    const modalBackdrop = document.getElementById('techModal')
+    const modal = document.querySelector('#techModal .modal')
     const modalTitle = document.getElementById('techModalTitle')
     const modalBody = document.getElementById('techModalBody')
-    container.addEventListener('click', (e)=>{
-      const card = e.target.closest('.tech-card')
+    let lastFocused = null
+
+    function openModalForCard(card){
       if(!card) return
+      lastFocused = document.activeElement
       const name = card.dataset.name
       const when = card.dataset.when || ''
       const pros = card.dataset.pros || ''
       const cons = card.dataset.cons || ''
       modalTitle.textContent = name
       modalBody.innerHTML = `<p>${when}</p><h4>Prós</h4><ul>${pros.split('|').map(p=>`<li>${p}</li>`).join('')}</ul><h4>Contras</h4><ul>${cons.split('|').map(p=>`<li>${p}</li>`).join('')}</ul><h4>Quando escolher?</h4><ul><li>Analise requisitos</li><li>Considere equipe</li><li>Prove com PoC</li></ul>`
+      modalBackdrop.classList.add('open')
       modal.classList.add('open')
-      modal.parentElement.classList.add('open')
-      modal.setAttribute('aria-hidden','false')
-    })
-    // close modal
-    document.getElementById('techModalClose').addEventListener('click', ()=>{
-      modal.parentElement.classList.remove('open')
+      modalBackdrop.setAttribute('aria-hidden','false')
+      // move focus into modal
+      const focusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')
+      if(focusable) focusable.focus()
+    }
+
+    function closeModal(){
+      modalBackdrop.classList.remove('open')
       modal.classList.remove('open')
-      modal.setAttribute('aria-hidden','true')
+      modalBackdrop.setAttribute('aria-hidden','true')
+      if(lastFocused) lastFocused.focus()
+    }
+
+    container.addEventListener('click', (e)=>{
+      const card = e.target.closest('.tech-card')
+      if(!card) return
+      // if clicking the favorite toggle, don't open modal
+      if(e.target.closest('.fav-toggle')) return
+      openModalForCard(card)
+    })
+    // keyboard: Enter on focused card opens modal
+    container.addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter'){
+        const card = document.activeElement.closest && document.activeElement.closest('.tech-card')
+        if(card) openModalForCard(card)
+      }
     })
 
-    // Export CSV
+    // close modal (button)
+    const closeBtn = document.getElementById('techModalClose')
+    if(closeBtn) closeBtn.addEventListener('click', ()=>{ closeModal() })
+    // close on ESC
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal() })
+    // click outside to close
+    modalBackdrop.addEventListener('click', (e)=>{ if(e.target === modalBackdrop) closeModal() })
+
+    // Favorites (persisted) and Export CSV
+    const favKey = 'gw_favs_v1'
+    const favs = new Set(JSON.parse(localStorage.getItem(favKey) || '[]'))
+
+    function updateFavUI(id, btn){
+      const isFav = favs.has(id)
+      if(btn) btn.setAttribute('aria-pressed', String(isFav))
+      if(btn) btn.classList.toggle('is-fav', isFav)
+    }
+
+    // attach handlers to fav buttons (delegation)
+    container.addEventListener('click', (e)=>{
+      const fav = e.target.closest('.fav-toggle')
+      if(!fav) return
+      const id = fav.dataset.techName
+      if(!id) return
+      if(favs.has(id)) favs.delete(id); else favs.add(id)
+      localStorage.setItem(favKey, JSON.stringify(Array.from(favs)))
+      updateFavUI(id, fav)
+      e.stopPropagation()
+    })
+
+    // initialize fav UI for existing fav buttons
+    Array.from(container.querySelectorAll('.fav-toggle')).forEach(b=> updateFavUI(b.dataset.techName,b))
+
     exportBtn.addEventListener('click', ()=>{
       try{
         const cards = Array.from(container.querySelectorAll('.tech-card')).filter(c=>c.style.display !== 'none')
-        const rows = [['Nome','Categoria','Prós','Contras']]
-        cards.forEach(c=>rows.push([c.dataset.name,c.dataset.category,c.dataset.pros,c.dataset.cons]))
+        const rows = [['Nome','Categoria','Prós','Contras','Favorito']]
+        cards.forEach(c=>rows.push([c.dataset.name,c.dataset.category,c.dataset.pros,c.dataset.cons, favs.has(c.dataset.name) ? 'SIM' : '']))
         const csv = rows.map(r=>r.map(v=>`"${(v||'').replace(/"/g,'""')}"`).join(',')).join('\n')
         const blob = new Blob([csv],{type:'text/csv'})
         const url = URL.createObjectURL(blob)
